@@ -17,7 +17,12 @@ jobs:
       - image: cimg/node:16.8.0
     steps:
       - checkout
-      - run: node --version
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run Tests
+          command: npm run test 
   build:
       docker:
         - image: docker
